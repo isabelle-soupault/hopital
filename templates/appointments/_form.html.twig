@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+    <a href="{{ path('patients_index') class="btn btn-danger"}}>Annuler</a>
+{{ form_end(form) }}

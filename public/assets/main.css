@@ -1,0 +1,65 @@
+/*Barre de navigation */
+.bg-nav{
+    background-color: moccasin;
+}
+
+.marge{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+ .mainBody {
+    min-height:100%;
+    position:relative;
+    padding-bottom:100px;   /* Hauteur du pied de page */
+ }
+ 
+/*Footer au bas de la page */
+footer {
+    /*position:absolute;*/
+    bottom: 0;
+    width: 100%;
+    margin-top: 3vh;
+}
+
+
+
+/*Attribut spécifique pour le h1 de l'ensemble des pages */
+h1{
+    color:cornflowerblue;
+    font-family: Garamond, serif;
+    padding-bottom: 4vh;
+}
+
+/*Bouton Enregistrer /page Editer et Bouton Ajouter /page index */
+#patients_Enregistrer, .btnIndexAdd{
+    float:right;
+    margin-top:1vw;
+    padding: 1rem;
+}
+
+/*Customisation du bouton Annuler de la page Edit */
+
+.btnCancel{
+margin-top:1vw;
+margin-right:1vh;
+}
+
+.btnCancel:Hover, btnIndexShow:hover{
+    color:white;
+}
+
+/*Amélioration du bouton Supprimer du formulaire Supprimer */
+.btnDelete{
+    margin-top:1vw;
+}
+#patients label{
+    padding-top : 1vw;
+    margin-left:1vh;
+}
+
+#patients_birthDate_day, #patients_birthDate_year, #patients_birthDate_month{
+    width: 5vw;
+    margin:0.4rem;
+}

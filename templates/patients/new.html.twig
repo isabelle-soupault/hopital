@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Nouveau patient{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau patient</h1>
+
+{{ include('patients/_form.html.twig', {'button_label': 'Ajouter'}) }}
+
+{% endblock %}
