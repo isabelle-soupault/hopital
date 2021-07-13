@@ -32,6 +32,7 @@ class Appointments
      * @ORM\JoinColumn(nullable=false)
      */
     private $patients;
+    //private $patients_id;
 
     public function getId(): ?int
     {
@@ -62,15 +63,25 @@ class Appointments
         return $this;
     }
 
-    public function getPatients(): ?Patients
-    {
-        return $this->patients;
-    }
+   public function getPatients()
+   {
+       return $this->patients;
+   }
 
-    public function setPatients(?Patients $patients): self
-    {
-        $this->patients = $patients;
+   public function setPatients($patients)
+   {
+       $this->patients = $patients;
 
-        return $this;
-    }
+       return $this;
+   }
+
+//  public function getPatientsId(){
+//       return $this->patients_id;
+//   }
+//   public function setPatientsId($patientsId) : self
+//   {
+//       $this->patients_Id = $patientsId;
+//
+//       return $this;
+//   }
 }

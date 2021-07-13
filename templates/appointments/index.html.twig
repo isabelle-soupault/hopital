@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Appointments index{% endblock %}
+{% block title %}Liste des Rendez-vous{% endblock %}
 
 {% block body %}
-    <h1>Appointments index</h1>
+    <h1>Liste des Rendez-vous</h1>
 
-    <table class="table">
+    <table class="table table-striped table-bordered border-dark align-middle">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>StartTime</th>
-                <th>EndTime</th>
-                <th>actions</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +20,17 @@
                 <td>{{ appointment.startTime ? appointment.startTime|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ appointment.endTime ? appointment.endTime|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('appointments_show', {'id': appointment.id}) }}">show</a>
-                    <a href="{{ path('appointments_edit', {'id': appointment.id}) }}">edit</a>
+                    <a href="{{ path('appointments_show', {'id': appointment.id}) }}">Voir</a>
+                    <a href="{{ path('appointments_edit', {'id': appointment.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun RDV trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('appointments_new') }}">Create new</a>
+    <a href="{{ path('appointments_new') }}">Créer nouveau RDV</a>
 {% endblock %}

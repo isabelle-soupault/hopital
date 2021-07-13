@@ -24,7 +24,7 @@
         {% for patient in patients %}
             <tr class="text-center">
                 {#<td>{{ patient.id }}</td>#}
-                <td>{{ patient.lastname }}</td>
+                <td>{{ patient.lastname |upper }} </td>
                 <td>{{ patient.firstname }}</td>
                 <td>{{ patient.birthDate ? patient.birthDate|date('d-m-Y') : '' }}</td>
                 <td>{{ patient.email }}</td>

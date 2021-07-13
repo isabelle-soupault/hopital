@@ -61,7 +61,7 @@ class PatientsController extends AbstractController
      */
     public function edit(Request $request, Patients $patient): Response
     {
-        $form = $this->createForm(PatientsType::class, $patient,['button_label' =>'Modifier']);
+        $form = $this->createForm(PatientsType::class, $patient,['button_label' => 'Modifier']);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -73,6 +73,7 @@ class PatientsController extends AbstractController
         return $this->render('patients/edit.html.twig', [
             'patient' => $patient,
             'form' => $form->createView(),
+            
         ]);
     }
 
@@ -90,3 +91,7 @@ class PatientsController extends AbstractController
         return $this->redirectToRoute('patients_index', [], Response::HTTP_SEE_OTHER);
     }
 }
+
+
+
+
