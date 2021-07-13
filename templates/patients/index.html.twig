@@ -4,7 +4,12 @@
 
 {% block body %}
 
-
+<form method="post" accept-charset="UTF-8">
+    <h2><label for="search">Rechercher</label></h2>
+    <input id="search" type="text" name="search" placeholder="Nom du patient">
+    <input type="submit" value="Rechercher">
+   <a href="{{path('patients_index')  }}" class="btn btn-outline-info">Afficher tous les patients </a>
+</form>
 
     <h1>Liste des patients</h1>
 

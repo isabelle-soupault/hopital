@@ -19,6 +19,7 @@ class AppointmentsType extends AbstractType
             ->add('startTime', DateTimeType::class, [
                 'label' =>'Début',
                 'label_attr'=>['class' => 'form-label'],
+                
             ])
 
             ->add('endTime', DateTimeType::class, [
@@ -34,17 +35,14 @@ class AppointmentsType extends AbstractType
                     return strtoupper($patients->getLastname()) . ' ' . $patients->getFirstname();
                 },
                 'placeholder' => 'Patient',
-
                 'label' => 'Nom du patient',
                 'label_attr'=>['class' => 'form-label'],
                 'attr'=>['class' => 'form-control']
             ])
-            ->add('Enregistrer', SubmitType::class,
-            [
-                'label' => $options['button_label'],
+            ->add('Enregistrer',SubmitType::class,
+            ['label' => $options['button_label'],
             'attr' => ['class' => 'btn btn-outline-success']
-            ]
-            );
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

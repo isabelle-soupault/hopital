@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\PatientsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PatientsRepository::class)
+ * @UniqueEntity("lastname", "firstname", "birthDate"),
+ * message="Ce patient existe déjà"
  */
 class Patients
 {
@@ -19,11 +23,21 @@ class Patients
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Regex(
+     * pattern="/^[a-zA-ZÀ-ÿ\-\ ]*$/",
+     * message="Le nom doit contenir uniquement des lettres."
+     * )
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Regex(
+     * pattern="/^[a-zA-ZÀ-ÿ\-\ ]*$/",
+     * message="Le prénom ne peut pas contenir de chiffre."
+     * )
      */
     private $firstname;
 
@@ -39,6 +53,10 @@ class Patients
 
     /**
      * @ORM\Column(type="string", length=11)
+     * @Assert\Regex(
+     * pattern="/^[12][0-9]{10}$/",
+     * message="Le numéro de carte vital commence par un 1 ou un 2 et contient au total 11 chiffres."
+     * )
      */
     private $vitalCardNumber;
 
@@ -54,8 +72,8 @@ class Patients
 
     public function setLastname(string $lastname): self
     {
-        $this->lastname = $lastname;
-
+        $this->lastname = mb_strtoupper($lastname);
+    
         return $this;
     }
 

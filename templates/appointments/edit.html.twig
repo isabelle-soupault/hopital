@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Appointments{% endblock %}
+{% block title %}Modifier le RDV{% endblock %}
 
 {% block body %}
-    <h1>Edit Appointments</h1>
+    <h1>Modifier le RDV</h1>
 
     {{ include('appointments/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('appointments_index') }}" class="btn btn-danger">Annuler</a>
 
     {{ include('appointments/_delete_form.html.twig') }}
 {% endblock %}

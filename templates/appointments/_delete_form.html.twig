@@ -1,4 +1,6 @@
-<form method="post" action="{{ path('appointments_delete', {'id': appointment.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+<form method="post" action="{{ path('appointments_delete', {'id': appointment.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce RDV ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ appointment.id) }}">
-    <button class="btn">Delete</button>
+    <div class = "d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-outline-danger p-3 btnDelete">Supprimer</button>
+    </div>
 </form>

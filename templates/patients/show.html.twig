@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <th>date de naissance</th>
-                <td>{{ patient.birthDate ? patient.birthDate|date('Y-m-d') : '' }}</td>
+                <td>{{ patient.birthDate ? patient.birthDate|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Email</th>
@@ -32,7 +32,7 @@
     </table>
     <div class = "d-grid gap-2 d-md-flex justify-content-md-end">
 
-    <a href="{{ path('patients_index') }}" class="btn btn-outline-info p-3"> Retour à l'accueil</a>
+    <a href="{{ path('patients_index') }}" class="btn btn-outline-info p-3 btnBackIndex"> Retour à l'accueil</a>
 
     <a href="{{ path('patients_edit', {'id': patient.id}) }}" class="btn btn-outline-success p-3">Editer</a>
     </div>

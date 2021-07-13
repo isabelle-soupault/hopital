@@ -23,6 +23,16 @@ class PatientsController extends AbstractController
         ]);
     }
 
+/**
+     * @Route("/", name="patients_search", methods={"POST"})
+     */
+    public function search(PatientsRepository $patientsRepository, Request $request): Response
+    {
+        return $this->render('patients/index.html.twig', [
+            'patients' => $patientsRepository->findBy(['lastname' => $request->get('search')]),
+        ]);
+    }
+
     /**
      * @Route("/new", name="patients_new", methods={"GET","POST"})
      */
