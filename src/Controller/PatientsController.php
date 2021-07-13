@@ -29,7 +29,7 @@ class PatientsController extends AbstractController
     public function search(PatientsRepository $patientsRepository, Request $request): Response
     {
         return $this->render('patients/index.html.twig', [
-            'patients' => $patientsRepository->findBy(['lastname' => $request->get('search')]),
+            'patients' => $patientsRepository->findByNameOrFirstname($request->get('search')),
         ]);
     }
 

@@ -19,6 +19,17 @@ class PatientsRepository extends ServiceEntityRepository
         parent::__construct($registry, Patients::class);
     }
 
+    public function findByNameOrFirstname($value){
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.lastname like :val')
+        ->orWhere('p.firstname like :val')
+        ->setParameter('val', '%'.$value.'%')
+        ->orderBy('p.lastname,p.firstname', 'ASC')
+        ->getQuery()
+        ->getResult()
+    ;
+    }
+
     // /**
     //  * @return Patients[] Returns an array of Patients objects
     //  */
